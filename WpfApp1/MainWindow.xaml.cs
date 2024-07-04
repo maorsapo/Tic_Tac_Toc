@@ -169,20 +169,20 @@ namespace WpfApp1
                 if (whichLevel == "קשה")
                     if (turn == 2)
                     {
-                        num = botchecks.botstart(ta1.board, turn);
+                        num = BotChecks.botstart(ta1.board, turn);
                         ChangeButtonState(barr[num]);
                     }
                 if (whichLevel == "קל")
                     if (turn == 2)
                     {
                         while (ta1.getValueInBoard((num / 3), (num % 3)) != 0)
-                            num = botchecks.boteasy();
+                            num = BotChecks.boteasy();
                         ChangeButtonState(barr[num]);
                     }
                 if (whichLevel == "בינוני")
                     if (turn == 2)
                     {
-                        num = botchecks.botmedium(ta1.board, turn);
+                        num = BotChecks.botmedium(ta1.board, turn);
                         ChangeButtonState(barr[num]);
                     }
 
@@ -294,20 +294,20 @@ namespace WpfApp1
                 if (Level.Text == "קשה")
                     if (turn == 2)
                     {
-                        num = botchecks.botstart(ta1.board, turn);
+                        num = BotChecks.botstart(ta1.board, turn);
                         ChangeButtonState(barr[num]);
                     }
                 if (Level.Text == "קל")
                     if (turn == 2)
                     {
                         while (ta1.getValueInBoard((num / 3), (num % 3)) != 0 )
-                            num = botchecks.boteasy();
+                            num = BotChecks.boteasy();
                         ChangeButtonState(barr[num]);
                     }
                 if (Level.Text == "בינוני")
                     if (turn == 2)
                     {
-                        num = botchecks.botmedium(ta1.board, turn);
+                        num = BotChecks.botmedium(ta1.board, turn);
                         ChangeButtonState(barr[num]);
                     }
 

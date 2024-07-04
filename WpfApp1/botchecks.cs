@@ -2,7 +2,7 @@
 
 namespace WpfApp1
 {
-    static class botchecks
+    static class BotChecks
     {
 
         // Generates a random move for easy difficulty

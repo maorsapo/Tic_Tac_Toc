@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BoardConfig.cs" />
-    <Compile Include="botchecks.cs" />
+    <Compile Include="BotChecks.cs" />
     <Compile Include="Game_Board.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
