@@ -1,9 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using ConsoleApp4;
+using Tic_Tac_Toc_Game_Board;
+using Tic_Tac_Toc_Bot_Checks;
 
-namespace WpfApp1
+
+namespace Tic_Tac_Toc_Main_Window
 {
    
     public partial class MainWindow : Window
@@ -12,7 +14,7 @@ namespace WpfApp1
         public static int turn, i, j, counter = 0, c1 = 0, c2 = 0, counterturns = 0;
         public static char c;
         public static bool bot = false;
-        public static bool player; // אמת=שחקן אמיתי שקר=בוט 
+        public static bool player; // True=Human, False=Bot  
         public static string whichLevel;
         Game_Board ta1;
         public static Button[] barr;
@@ -63,7 +65,7 @@ namespace WpfApp1
             tshowplayer.Visibility = Visibility;
             lshowplayer.Visibility = Visibility;
 
-            if (turn == 1)
+            if (turn == GameConfig.TurnO)
                 tshowplayer.Text = "O";
             else
                 tshowplayer.Text = "X";
@@ -93,9 +95,9 @@ namespace WpfApp1
             b8.Content = "";
             b9.Content = "";
             if (counterturns % 2 == 0)
-                turn = 1;
+                turn = GameConfig.TurnO;
             else
-                turn = 2;
+                turn = GameConfig.TurnX;
             ta1 = new Game_Board();
             ta1.cleanBoardBoard();
             counter = 0;
@@ -121,14 +123,14 @@ namespace WpfApp1
                     go.Text = "0 ";
                     gx.Text = "0 ";
                 }
-                turn = 1;
+                turn = GameConfig.TurnO;
 
                 if (counterturns > 0 && bot == false)
                     counterturns = 0;
                 if (counterturns > 0 && counterturns % 2 == 0)
-                    turn = 1;
+                    turn = GameConfig.TurnO;
                 else if (counterturns > 0 && counterturns % 2 != 0)
-                    turn = 2;
+                    turn = GameConfig.TurnX;
                 bot = true;
                 bwin.Visibility = Visibility.Hidden;
                 bfinalwin.Visibility = Visibility.Hidden;
@@ -155,10 +157,10 @@ namespace WpfApp1
                 b9.Content = "";
 
 
-                if (turn == 2)
-                    turn = 1;
+                if (turn == GameConfig.TurnX)
+                    turn = GameConfig.TurnO;
                 else
-                    turn = 2;
+                    turn = GameConfig.TurnO;
                 ta1 = new Game_Board();
                 ta1.cleanBoardBoard();
                 counter = 0;
@@ -167,20 +169,20 @@ namespace WpfApp1
            
                 int num = 0;   
                 if (whichLevel == "קשה")
-                    if (turn == 2)
+                    if (turn == GameConfig.TurnX)
                     {
                         num = BotChecks.botstart(ta1.board, turn);
                         ChangeButtonState(barr[num]);
                     }
                 if (whichLevel == "קל")
-                    if (turn == 2)
+                    if (turn == GameConfig.TurnX)
                     {
                         while (ta1.getValueInBoard((num / 3), (num % 3)) != 0)
                             num = BotChecks.boteasy();
                         ChangeButtonState(barr[num]);
                     }
                 if (whichLevel == "בינוני")
-                    if (turn == 2)
+                    if (turn == GameConfig.TurnX)
                     {
                         num = BotChecks.botmedium(ta1.board, turn);
                         ChangeButtonState(barr[num]);
@@ -200,7 +202,7 @@ namespace WpfApp1
 
 
             counter++;
-            if (turn == 1)
+            if (turn == GameConfig.TurnO)
                 c = 'O';
             else
                 c = 'X';
@@ -210,12 +212,12 @@ namespace WpfApp1
             ta1.setValueInBoard(i, j, turn);
             btn.Content = c;
 
-            if (turn ==2)
-                turn = 1;
+            if (turn == GameConfig.TurnX)
+                turn = GameConfig.TurnO;
             else
-                turn = 2;
+                turn = GameConfig.TurnX;
             btn.IsEnabled = false;
-            if (turn == 1)
+            if (turn == GameConfig.TurnO)
                 tshowplayer.Text = "O";
             else
                 tshowplayer.Text = "X";
@@ -292,20 +294,20 @@ namespace WpfApp1
                 int num = 0;          
 
                 if (Level.Text == "קשה")
-                    if (turn == 2)
+                    if (turn == GameConfig.TurnX)
                     {
                         num = BotChecks.botstart(ta1.board, turn);
                         ChangeButtonState(barr[num]);
                     }
                 if (Level.Text == "קל")
-                    if (turn == 2)
+                    if (turn == GameConfig.TurnX)
                     {
                         while (ta1.getValueInBoard((num / 3), (num % 3)) != 0 )
                             num = BotChecks.boteasy();
                         ChangeButtonState(barr[num]);
                     }
                 if (Level.Text == "בינוני")
-                    if (turn == 2)
+                    if (turn == GameConfig.TurnX)
                     {
                         num = BotChecks.botmedium(ta1.board, turn);
                         ChangeButtonState(barr[num]);

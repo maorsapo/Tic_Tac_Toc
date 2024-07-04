@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-namespace ConsoleApp4
+namespace Tic_Tac_Toc_Game_Board
 {
     // 1 = O, 2 = X
     class Game_Board
@@ -119,58 +119,6 @@ namespace ConsoleApp4
     }
 }
 
-/*
-if (board[0, 0] == board[0, 1] && board[0, 2] == board[0, 0] && (board[0, 0] == 1 || board[0, 0] == 2))
-{
-    arr[0] = board[0, 0];
-    arr[1] = 1;
-    return arr;
-}
-
-// Check second row for a win
-if (board[1, 0] == board[1, 1] && board[1, 2] == board[1, 0] && (board[1, 0] == 1 || board[1, 0] == 2))
-{
-    arr[0] = board[1, 0];
-    arr[1] = 2;
-    return arr;
-}
-
-// Check third row for a win
-if (board[2, 0] == board[2, 1] && board[2, 2] == board[2, 0] && (board[2, 0] == 1 || board[2, 0] == 2))
-{
-    arr[0] = board[2, 0];
-    arr[1] = 3;
-    return arr;
-}
-*/
-
-
-
-/*
-// Check first column for a win
-if (board[0, 0] == board[1, 0] && board[0, 0] == board[2, 0] && (board[0, 0] == 1 || board[0, 0] == 2))
-{
-    arr[0] = board[0, 0];
-    arr[1] = 4;
-    return arr;
-}
-
-// Check second column for a win
-if (board[0, 1] == board[1, 1] && board[0, 1] == board[2, 1] && (board[0, 1] == 1 || board[0, 1] == 2))
-{
-    arr[0] = board[0, 1];
-    arr[1] = 5;
-    return arr;
-}
-
-// Check third column for a win
-if (board[0, 2] == board[1, 2] && board[0, 2] == board[2, 2] && (board[0, 2] == 1 || board[0, 2] == 2))
-{
-    arr[0] = board[0, 2];
-    arr[1] = 6;
-    return arr;
-}
-*/
 
 
 
